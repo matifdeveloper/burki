@@ -1,5 +1,5 @@
 /*
-********************************************************************************
+ ********************************************************************************
 
     _____/\\\\\\\\\_____/\\\\\\\\\\\\\\\__/\\\\\\\\\\\__/\\\\\\\\\\\\\\\_
     ___/\\\\\\\\\\\\\__\///////\\\/////__\/////\\\///__\/\\\///////////__
@@ -11,12 +11,33 @@
     _\/\\\_______\/\\\_______\/\\\________/\\\\\\\\\\\_\/\\\_____________
     _\///________\///________\///________\///////////__\///______________
 
-    Created by Muhammad Atif on 3/12/2024.
+    Created by Muhammad Atif on 04/01/2024 : 9:27 pm.
     Portfolio https://atifnoori.web.app.
-    IsloAI
+    +923085690603
 
- *********************************************************************************/
+ ********************************************************************************
+ */
 
-export 'size_config.dart';
-export 'routes.dart';
-export 'logger.dart';
+import 'package:flutter/material.dart';
+import 'package:burki/sources.dart';
+
+class AdsState extends ChangeNotifier{
+
+  RewardedAd? _rewardedAd;
+
+  RewardedAd? get rewardedAd => _rewardedAd;
+
+  set rewardedAd(ad){
+    _rewardedAd = ad;
+    notifyListeners();
+  }
+
+
+  InterstitialAd? _interstitialAd;
+  InterstitialAd? get interstitialAd => _interstitialAd;
+  set interstitialAd(ad){
+    _interstitialAd = ad;
+    notifyListeners();
+  }
+
+}
