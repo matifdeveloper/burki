@@ -19,14 +19,14 @@
 
 import 'package:flutter/material.dart';
 
-class Get {
+class Navigate {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static BuildContext get currentContext =>
       navigatorKey.currentState!.overlay!.context;
 
   /// Move from the current route
-  Get.to(Widget screen, {bool isAnimated = false}) {
+  Navigate.to(Widget screen, {bool isAnimated = false}) {
     navigatorKey.currentState!.push(
       isAnimated
           ? pageRouteBuilder(screen)
@@ -37,7 +37,7 @@ class Get {
   }
 
   /// Replace the current route with new on
-  Get.off(Widget screen, {bool isAnimated = false}) {
+  Navigate.off(Widget screen, {bool isAnimated = false}) {
     navigatorKey.currentState!.pushReplacement(
       isAnimated
           ? pageRouteBuilder(screen)
@@ -48,7 +48,7 @@ class Get {
   }
 
   /// Remove all the routes
-  Get.offAll(Widget screen, {bool isAnimated = false}) {
+  Navigate.offAll(Widget screen, {bool isAnimated = false}) {
     navigatorKey.currentState!.pushAndRemoveUntil(
       isAnimated
           ? pageRouteBuilder(screen)
@@ -59,7 +59,7 @@ class Get {
     );
   }
 
-  Get.back({dynamic result}) {
+  Navigate.back({dynamic result}) {
     navigatorKey.currentState!.pop(result);
   }
 

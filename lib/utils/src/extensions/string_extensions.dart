@@ -1,5 +1,5 @@
 /*
- ********************************************************************************
+********************************************************************************
 
     _____/\\\\\\\\\_____/\\\\\\\\\\\\\\\__/\\\\\\\\\\\__/\\\\\\\\\\\\\\\_
     ___/\\\\\\\\\\\\\__\///////\\\/////__\/////\\\///__\/\\\///////////__
@@ -11,14 +11,11 @@
     _\/\\\_______\/\\\_______\/\\\________/\\\\\\\\\\\_\/\\\_____________
     _\///________\///________\///________\///////////__\///______________
 
-    Created by Muhammad Atif on 10/20/2023.
+    Created by Muhammad Atif on 3/13/2024.
     Portfolio https://atifnoori.web.app.
-    https://www.linkedin.com/in/matifdeveloper/
+    IsloAI
 
- ********************************************************************************
- */
-
-import 'package:flutter/material.dart';
+ *********************************************************************************/
 
 extension StringExtension on String {
   // Capitalize the first letter of the string
@@ -94,28 +91,4 @@ extension StringExtension on String {
     }
   }
 
-}
-
-/// Padding extension
-extension PaddingExtension on Widget {
-  Widget paddedAll(double padding) {
-    return Padding(
-      padding: EdgeInsets.all(padding),
-      child: this,
-    );
-  }
-
-  Widget paddedSymmetric({double vertical = 0, double horizontal = 0}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontal),
-      child: this,
-    );
-  }
-
-  Widget paddedOnly({double left = 0, double top = 0, double right = 0, double bottom = 0}) {
-    return Padding(
-      padding: EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
-      child: this,
-    );
-  }
 }
