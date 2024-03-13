@@ -20,3 +20,4 @@
 export 'size_config.dart';
 export 'routes.dart';
 export 'logger.dart';
+export 'extensions.dart';
