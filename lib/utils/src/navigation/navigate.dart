@@ -17,6 +17,7 @@
 
  *********************************************************************************/
 
+import 'package:burki/utils/src/navigation/transitions.dart';
 import 'package:flutter/material.dart';
 
 enum Transition {
@@ -26,6 +27,15 @@ enum Transition {
   topToBottom,
   fadeTransition,
   scaleTransition,
+  rotateTransition,
+  sizeTransition,
+  diagonalTopLeftToBottomRight,
+  diagonalBottomRightToTopLeft,
+  diagonalTopRightToBottomLeft,
+  diagonalBottomLeftToTopRight,
+  rotateAndScaleTransition,
+  fadeAndScaleTransition,
+  slideAndFadeTransition,
 }
 
 class Navigate {
@@ -80,49 +90,112 @@ class Navigate {
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         switch (transition) {
           case Transition.leftToRight:
-            return leftToRight(
+            return AnimatedTransitions.leftToRight(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           case Transition.rightToLeft:
-            return rightToLeft(
+            return AnimatedTransitions.rightToLeft(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           case Transition.bottomToTop:
-            return bottomToTop(
+            return AnimatedTransitions.bottomToTop(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           case Transition.topToBottom:
-            return topToBottom(
+            return AnimatedTransitions.topToBottom(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           case Transition.fadeTransition:
-            return fadeTransition(
+            return AnimatedTransitions.fadeTransition(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           case Transition.scaleTransition:
-            return scaleTransition(
+            return AnimatedTransitions.scaleTransition(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.rotateTransition:
+            return AnimatedTransitions.rotateTransition(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.sizeTransition:
+            return AnimatedTransitions.sizeTransition(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.diagonalTopLeftToBottomRight:
+            return AnimatedTransitions.diagonalTopLeftToBottomRight(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.diagonalBottomRightToTopLeft:
+            return AnimatedTransitions.diagonalBottomRightToTopLeft(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.diagonalTopRightToBottomLeft:
+            return AnimatedTransitions.diagonalTopRightToBottomLeft(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.diagonalBottomLeftToTopRight:
+            return AnimatedTransitions.diagonalBottomLeftToTopRight(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.rotateAndScaleTransition:
+            return AnimatedTransitions.rotateAndScaleTransition(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.fadeAndScaleTransition:
+            return AnimatedTransitions.fadeAndScaleTransition(
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            );
+          case Transition.slideAndFadeTransition:
+            return AnimatedTransitions.slideAndFadeTransition(
               context,
               animation,
               secondaryAnimation,
               child,
             );
           default:
-            return leftToRight(
+            return AnimatedTransitions.leftToRight(
               context,
               animation,
               secondaryAnimation,
@@ -130,98 +203,6 @@ class Navigate {
             );
         }
       },
-    );
-  }
-
-  ///Animation method to left to right
-  SlideTransition leftToRight(context, animation, secondaryAnimation, child) {
-    const begin = Offset(1.0, 0.0);
-    const end = Offset.zero;
-    const curve = Curves.easeInOutSine;
-    final tween = Tween(begin: begin, end: end);
-    final curvedAnimation = CurvedAnimation(
-      parent: animation,
-      curve: curve,
-    );
-    return SlideTransition(
-      position: tween.animate(curvedAnimation),
-      child: child,
-    );
-  }
-
-  /// Slide transition from right to left
-  SlideTransition rightToLeft(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    const begin = Offset(-1.0, 0.0);
-    const end = Offset.zero;
-    const curve = Curves.easeInOutSine;
-    final tween = Tween(begin: begin, end: end);
-    final curvedAnimation = CurvedAnimation(
-      parent: animation,
-      curve: curve,
-    );
-    return SlideTransition(
-      position: tween.animate(curvedAnimation),
-      child: child,
-    );
-  }
-
-
-  /// Slide transition from bottom to top
-  SlideTransition bottomToTop(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    const begin = Offset(0.0, 1.0);
-    const end = Offset.zero;
-    const curve = Curves.easeInOutSine;
-    final tween = Tween(begin: begin, end: end);
-    final curvedAnimation = CurvedAnimation(
-      parent: animation,
-      curve: curve,
-    );
-    return SlideTransition(
-      position: tween.animate(curvedAnimation),
-      child: child,
-    );
-  }
-
-  /// Slide transition from top to bottom
-  SlideTransition topToBottom(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    const begin = Offset(0.0, -1.0);
-    const end = Offset.zero;
-    const curve = Curves.easeInOutSine;
-    final tween = Tween(begin: begin, end: end);
-    final curvedAnimation = CurvedAnimation(
-      parent: animation,
-      curve: curve,
-    );
-    return SlideTransition(
-      position: tween.animate(curvedAnimation),
-      child: child,
-    );
-  }
-
-  /// Fade transition
-  FadeTransition fadeTransition(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
-    return FadeTransition(
-      opacity: animation,
-      child: child,
-    );
-  }
-
-  /// Scale transition
-  ScaleTransition scaleTransition(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
-    return ScaleTransition(
-      scale: animation,
-      child: child,
     );
   }
 }
