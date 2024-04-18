@@ -91,4 +91,15 @@ extension StringExtension on String {
     }
   }
 
+  // Remove characters after that
+  String removeAfterDot() {
+    RegExp regex = RegExp(r'[^.]+');
+    RegExpMatch? match = regex.firstMatch(this);
+    if (match != null) {
+      return match.group(0) ?? this;
+    } else {
+      return this;
+    }
+  }
+
 }
