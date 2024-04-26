@@ -18,7 +18,7 @@
  *********************************************************************************/
 
 extension StringExtension on String {
-  // Capitalize the first letter of the string
+  /// Capitalize the first letter of the string
   String capitalize() {
     if (isEmpty) {
       return this; // Return the original string if it's empty.
@@ -26,9 +26,8 @@ extension StringExtension on String {
     return this[0].toUpperCase() + substring(1);
   }
 
-  // Remove the alphabetic characters in String
+  /// Remove the alphabetic characters in String
   String removeAlphabeticCharacters() {
-
     // Regular expression to match digits and a decimal point
     RegExp regex = RegExp(r'(\d+(\.\d+)?)');
 
@@ -45,14 +44,14 @@ extension StringExtension on String {
       // If no match found, return 0.0 or handle accordingly
       return '';
     }
-
   }
 
-  // Get the youtube link from String
+  /// Get the youtube link from String
   String ytLink() {
     String link = this;
 
-    RegExp regExp = RegExp(r"(?:https?://)?(?:www\.)?(?:youtube\.com/(?:[^/\n\s]+/\S+/|(?:v|e(?:mbed)?)/|\S*?[?&]v=)|youtu\.be/)([a-zA-Z0-9_-]{11})");
+    RegExp regExp = RegExp(
+        r"(?:https?://)?(?:www\.)?(?:youtube\.com/(?:[^/\n\s]+/\S+/|(?:v|e(?:mbed)?)/|\S*?[?&]v=)|youtu\.be/)([a-zA-Z0-9_-]{11})");
 
     // Match the regular expression with the input text
     RegExpMatch? match = regExp.firstMatch(this);
@@ -68,20 +67,18 @@ extension StringExtension on String {
       return youtubeUrl;
     }
 
-
     return link;
   }
 
-  // Get the text inside in brackets
+  /// Get the text inside in brackets
   String? textInsideBrackets() {
-
     RegExp regExp = RegExp(r'\[([^\]]*)\]');
     RegExpMatch? match = regExp.firstMatch(this);
     // FlutterLogger.success(match?.group(1)??'');
-    return match?.group(1)??this;
+    return match?.group(1) ?? this;
   }
 
-  // Get the file extension
+  /// Get the file extension
   String fileExtension() {
     int dotIndex = lastIndexOf('.');
     if (dotIndex != -1 && dotIndex < length - 1) {
@@ -91,7 +88,7 @@ extension StringExtension on String {
     }
   }
 
-  // Remove characters after that
+  /// Remove characters after that
   String removeAfterDot() {
     RegExp regex = RegExp(r'[^.]+');
     RegExpMatch? match = regex.firstMatch(this);
@@ -102,4 +99,15 @@ extension StringExtension on String {
     }
   }
 
+  /// Get the file extension from path
+  String getFileExtension() {
+    // Find the last occurrence of '.' in the string
+    final lastIndex = lastIndexOf('.');
+    if (lastIndex != -1) {
+      // Return the substring starting from the last occurrence of '.'
+      return substring(lastIndex + 1);
+    }
+    // If no '.' is found, return an empty string
+    return '';
+  }
 }
