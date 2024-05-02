@@ -65,6 +65,9 @@ enum BurkiTransitionType {
 
   /// A rotate-and-scale transition, where the element is rotated and scaled simultaneously.
   rotateAndScale,
+
+  /// A wave transition
+  wave,
 }
 
 /// A custom stateful widget that provides a transition effect to its child widget.
@@ -217,6 +220,16 @@ class _BurkiTransitionState extends State<BurkiTransition>
         _scaleAnimation = Tween<double>(
                 begin: _isForward ? 0.0 : 1.0, end: _isForward ? 1.0 : 0.0)
             .animate(_controller);
+        break;
+      case BurkiTransitionType.wave:
+      // Create a Tween animation for wave transitions
+        _animation = Tween<double>(
+          begin: _isForward ? -1.0 : 1.0,
+          end: _isForward ? 1.0 : -1.0,
+        ).animate(CurvedAnimation(
+          parent: _controller,
+          curve: Curves.easeInOut,
+        ));
         break;
     }
 
@@ -378,6 +391,16 @@ class _BurkiTransitionState extends State<BurkiTransition>
                 angle: _animation.value,
                 child: widget.child,
               ),
+            );
+          case BurkiTransitionType.wave:
+          // Apply the wave transition effect to the child widget
+            return Transform.translate(
+              // Calculate the offset based on the animation value and screen width
+              offset: Offset(
+                _animation.value * MediaQuery.of(context).size.width,
+                0.0,
+              ),
+              child: widget.child,
             );
           default:
             // Return an empty container if the transition type is not recognized.

@@ -17,7 +17,7 @@
 
  *********************************************************************************/
 
-import 'package:burki/utils/src/navigation/transitions.dart';
+import 'package:burki/src/navigation/transitions.dart';
 import 'package:flutter/material.dart';
 
 enum Transition {
