@@ -20,7 +20,6 @@
 import 'package:flutter/material.dart';
 
 class ScreenSize {
-
   static late MediaQueryData _mediaQueryData;
   static late Orientation orientation;
   static late double screenWidth;

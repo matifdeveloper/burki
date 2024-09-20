@@ -1,3 +1,7 @@
-## 0.0.2
+## 0.0.1
 
-* wave transition added
+* Extensions
+* Flutter Logger
+* Navigator
+* Size Config
+* Transitions

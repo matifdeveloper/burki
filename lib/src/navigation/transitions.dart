@@ -19,11 +19,10 @@
 
 import 'package:flutter/material.dart';
 
-class AnimatedTransitions{
-
-
+class AnimatedTransitions {
   ///Animation method to left to right
-  static SlideTransition leftToRight(context, animation, secondaryAnimation, child) {
+  static SlideTransition leftToRight(
+      context, animation, secondaryAnimation, child) {
     const begin = Offset(1.0, 0.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -39,8 +38,11 @@ class AnimatedTransitions{
   }
 
   /// Slide transition from right to left
-  static SlideTransition rightToLeft(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static SlideTransition rightToLeft(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(-1.0, 0.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -55,10 +57,12 @@ class AnimatedTransitions{
     );
   }
 
-
   /// Slide transition from bottom to top
-  static SlideTransition bottomToTop(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static SlideTransition bottomToTop(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(0.0, 1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -74,8 +78,11 @@ class AnimatedTransitions{
   }
 
   /// Slide transition from top to bottom
-  static SlideTransition topToBottom(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static SlideTransition topToBottom(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(0.0, -1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -116,7 +123,10 @@ class AnimatedTransitions{
 
   /// Rotate transition
   static RotationTransition rotateTransition(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     return RotationTransition(
       turns: animation,
       child: child,
@@ -125,7 +135,10 @@ class AnimatedTransitions{
 
   /// Size transition
   static SizeTransition sizeTransition(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     return SizeTransition(
       sizeFactor: animation,
       child: child,
@@ -134,7 +147,10 @@ class AnimatedTransitions{
 
   /// Slide transition from diagonal top-left to bottom-right
   static SlideTransition diagonalTopLeftToBottomRight(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(-1.0, -1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -151,7 +167,10 @@ class AnimatedTransitions{
 
   /// Slide transition from diagonal bottom-right to top-left
   static SlideTransition diagonalBottomRightToTopLeft(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(1.0, 1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -169,7 +188,10 @@ class AnimatedTransitions{
   ///////////////////////////////////////////////////////////
   /// Slide transition from diagonal top-right to bottom-left
   static SlideTransition diagonalTopRightToBottomLeft(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(1.0, -1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -186,7 +208,10 @@ class AnimatedTransitions{
 
   /// Slide transition from diagonal bottom-left to top-right
   static SlideTransition diagonalBottomLeftToTopRight(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     const begin = Offset(-1.0, 1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOutSine;
@@ -203,7 +228,10 @@ class AnimatedTransitions{
 
   /// Rotate and scale transition
   static Widget rotateAndScaleTransition(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     return ScaleTransition(
       scale: animation,
       child: RotationTransition(
@@ -215,7 +243,10 @@ class AnimatedTransitions{
 
   /// Fade and scale transition
   static Widget fadeAndScaleTransition(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     return ScaleTransition(
       scale: animation,
       child: FadeTransition(
@@ -227,7 +258,10 @@ class AnimatedTransitions{
 
   /// Slide and fade transition
   static Widget slideAndFadeTransition(
-      BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
     return FadeTransition(
       opacity: animation,
       child: SlideTransition(
@@ -242,6 +276,4 @@ class AnimatedTransitions{
       ),
     );
   }
-
-
 }

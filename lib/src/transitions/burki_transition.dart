@@ -222,7 +222,7 @@ class _BurkiTransitionState extends State<BurkiTransition>
             .animate(_controller);
         break;
       case BurkiTransitionType.wave:
-      // Create a Tween animation for wave transitions
+        // Create a Tween animation for wave transitions
         _animation = Tween<double>(
           begin: _isForward ? -1.0 : 1.0,
           end: _isForward ? 1.0 : -1.0,
@@ -393,7 +393,7 @@ class _BurkiTransitionState extends State<BurkiTransition>
               ),
             );
           case BurkiTransitionType.wave:
-          // Apply the wave transition effect to the child widget
+            // Apply the wave transition effect to the child widget
             return Transform.translate(
               // Calculate the offset based on the animation value and screen width
               offset: Offset(

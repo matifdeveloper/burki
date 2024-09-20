@@ -19,7 +19,6 @@
 
 import 'package:flutter/material.dart';
 
-
 /// Padding extension to widget
 extension PaddingExtension on Widget {
   Widget paddedAll(double padding) {
@@ -36,9 +35,11 @@ extension PaddingExtension on Widget {
     );
   }
 
-  Widget paddedOnly({double left = 0, double top = 0, double right = 0, double bottom = 0}) {
+  Widget paddedOnly(
+      {double left = 0, double top = 0, double right = 0, double bottom = 0}) {
     return Padding(
-      padding: EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
+      padding:
+          EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
       child: this,
     );
   }
@@ -52,7 +53,7 @@ extension MarginExtension on Widget {
   Widget marginSymmetric({double horizontal = 0.0, double vertical = 0.0}) =>
       Container(
           margin:
-          EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+              EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
           child: this);
 
   Widget marginOnly({
