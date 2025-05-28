@@ -2,7 +2,7 @@ name: burki
 description: "The Burki package is a comprehensive Flutter toolkit that offers various utilities for navigation, transitions, screen size management, and logging, streamlining app development and enhancing user experience."
 homepage: https://github.com/matifdeveloper/burki
 repository: https://github.com/matifdeveloper/burki
-version: 0.0.1
+version: 0.0.2
 burki:
   path: ../burki
 

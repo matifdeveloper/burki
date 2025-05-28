@@ -110,4 +110,9 @@ extension StringExtension on String {
     // If no '.' is found, return an empty string
     return '';
   }
+
+  /// Remove parentheses content from string
+  String removeParenthesesContent() {
+    return replaceAll(RegExp(r'\s*\([^)]*\)'), '');
+  }
 }

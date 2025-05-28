@@ -2,7 +2,7 @@
 <p>The Burki package is a comprehensive Flutter toolkit that offers various utilities for navigation, transitions, screen size management, and logging, streamlining app development and enhancing user experience.</p>
 
 ## Add in pubspec.yml dependencies
-`burki: ^0.0.1`
+`burki: ^0.0.2`
 
 ## Import package
 `import 'package:burki/burki.dart';`
