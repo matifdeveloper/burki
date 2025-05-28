@@ -194,14 +194,7 @@ class Navigate {
               secondaryAnimation,
               child,
             );
-          default:
-            return AnimatedTransitions.leftToRight(
-              context,
-              animation,
-              secondaryAnimation,
-              child,
-            );
-        }
+          }
       },
     );
   }

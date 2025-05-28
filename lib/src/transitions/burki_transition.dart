@@ -402,10 +402,7 @@ class _BurkiTransitionState extends State<BurkiTransition>
               ),
               child: widget.child,
             );
-          default:
-            // Return an empty container if the transition type is not recognized.
-            return Container();
-        }
+          }
       },
     );
   }
